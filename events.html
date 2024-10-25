@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Event: Personalised welcome messsage </title>
+  </head>
+  
+<body>
+  <h1 id="welcome-message">Mozilla is cool</h1>
+<button>Change user</button>
+  <script>
+let myButton = document.querySelector("button");
+let myHeading = document.querySelector("#welcome-message");
+function setUserName() {
+  const myName = prompt("Marvellous");
+  localStorage.setItem("name", myName);
+  myHeading.textContent = `Mozilla is cool, ${myName}`;
+}
+// Check if a name is already stored in localStorage
+if (localStorage.getItem("name")) {
+  const storedName = localStorage.getItem("name");
+  myHeading.textContent = `Mozilla is cool, ${storedName}`;
+}
+
+// Add event listener to the button
+myButton.addEventListener("click", setUserName);
+
+  </script>
+  
+</body>
+</html>
